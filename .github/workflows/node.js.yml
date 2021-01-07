@@ -58,11 +58,11 @@ jobs:
         name: Setup Node.js environment
         uses: actions/setup-node@v2.1.4
       -
-        name: Install
-        run: npm i
-      -
         name: Change Dir
         run: cd fuzzy-octo-pancake\
+      -
+        name: Install
+        run: npm i
       -
         name: Build
         run: npm run build
