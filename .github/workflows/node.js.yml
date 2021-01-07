@@ -55,8 +55,11 @@ jobs:
         name: Checkout
         uses: actions/checkout@v2
       -
-         name: generate build
-         run: npm run build
+        name: install
+        run: npm i
+      -
+        name: generate build
+        run: npm run build
 #       -
 #         name: Gen dummy page
 #         run: |
