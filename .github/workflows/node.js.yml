@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ master ]
+#     branches: [ master ]
   pull_request:
-    branches: [ master ]
+#     branches: [ master ]
 
 
 #     steps:
@@ -58,8 +58,11 @@ jobs:
         name: Setup Node.js environment
         uses: actions/setup-node@v2.1.4
       -
-        name: Github Pages Deploy Action
-        uses: avinal/github-pages-deploy-action@v0.9
+        name: Setup Node.js environment
+        run: ng deploy --base-href=/fuzzy-octo-pancake/
+
+#         name: Github Pages Deploy Action
+#         uses: avinal/github-pages-deploy-action@v0.9
 #         with:
           # GitHub access token with Repo Access
 #           GITHUB_TOKEN: # default is ${{ github.token }}
