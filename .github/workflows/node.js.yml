@@ -37,7 +37,7 @@ jobs:
         # Github access token token used to deploy on gh_pages. You can find it on Github.
         github_access_token: b4cd65193b19b2e7c06bfdacbc39767024c7b2e2
         # The directory of the angular project, in which all the commands will run
-        angular_project_dir: fuzzy-octo-pancake/fuzzy-octo-pancake/
+        angular_project_dir: fuzzy-octo-pancake/
         # Build configuration for the angular app
         build_configuration: production
         # base href for the app
