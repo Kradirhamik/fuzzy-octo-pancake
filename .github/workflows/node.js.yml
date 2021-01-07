@@ -58,37 +58,53 @@ jobs:
         name: Setup Node.js environment
         uses: actions/setup-node@v2.1.4
       -
-        name: Change Dir
-        run: cd fuzzy-octo-pancake\
-      -
-        name: Install
-        run: npm i
-      -
-        name: Build
-#         run: npm run build
-        run: ng deploy --base-href=/fuzzy-octo-pancake/
+        name: Github Pages Deploy Action
+        uses: avinal/github-pages-deploy-action@v0.9
+#         with:
+          # GitHub access token with Repo Access
+#           GITHUB_TOKEN: # default is ${{ github.token }}
+          # java(for JavaDoc), python(For Python Site/Documentation Generators)
+#           LANGUAGE: 
+          # make command to generate html
+#           MAKE_COMMAND: # default is make html
+          # Deploy pages to which branch
+#           PAGES_BRANCH: # default is gh-pages
+          # Generate Site from which branch
+#           BUILD_FROM: # default is master
+          # folder in which generated files are stored
+#           DOCS_FOLDER: # default is docs
 #       -
-#         name: Gen dummy page
-#         run: |
-#           mkdir public
-#           cat > public/index.html <<EOL
-#           <!doctype html>
-#           <html>
-#             <head>
-#               <title>GitHub Pages deployedeeeee!</title>
-#             </head>
-#             <body>
-#               <p>GitHub Pages with <strong>${{ github.sha }}</strong> commit ID has been deployed through <a href="https://github.com/marketplace/actions/github-pages">GitHub Pages action</a> successfully.</p>
-#             </body>
-#           </html>
-#           EOL
-      -
-        name: Deploy to GitHub Pages
-        if: success()
-        uses: crazy-max/ghaction-github-pages@v2
-        with:
-          target_branch: gh-pages
-          build_dir: fuzzy-octo-pancake\dist\fuzzy-octo-pancake\
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         name: Change Dir
+#         run: cd fuzzy-octo-pancake\
+#       -
+#         name: Install
+#         run: npm i
+#       -
+#         name: Build
+# #         run: npm run build
+#         run: ng deploy --base-href=/fuzzy-octo-pancake/
+# #       -
+# #         name: Gen dummy page
+# #         run: |
+# #           mkdir public
+# #           cat > public/index.html <<EOL
+# #           <!doctype html>
+# #           <html>
+# #             <head>
+# #               <title>GitHub Pages deployedeeeee!</title>
+# #             </head>
+# #             <body>
+# #               <p>GitHub Pages with <strong>${{ github.sha }}</strong> commit ID has been deployed through <a href="https://github.com/marketplace/actions/github-pages">GitHub Pages action</a> successfully.</p>
+# #             </body>
+# #           </html>
+# #           EOL
+#       -
+#         name: Deploy to GitHub Pages
+#         if: success()
+#         uses: crazy-max/ghaction-github-pages@v2
+#         with:
+#           target_branch: gh-pages
+#           build_dir: fuzzy-octo-pancake\dist\fuzzy-octo-pancake\
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
