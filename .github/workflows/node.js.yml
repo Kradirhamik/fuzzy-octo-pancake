@@ -54,21 +54,21 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v2
-      -
-        name: Gen dummy page
-        run: |
-          mkdir public
-          cat > public/index.html <<EOL
-          <!doctype html>
-          <html>
-            <head>
-              <title>GitHub Pages deployed!</title>
-            </head>
-            <body>
-              <p>GitHub Pages with <strong>${{ github.sha }}</strong> commit ID has been deployed through <a href="https://github.com/marketplace/actions/github-pages">GitHub Pages action</a> successfully.</p>
-            </body>
-          </html>
-          EOL
+#       -
+#         name: Gen dummy page
+#         run: |
+#           mkdir public
+#           cat > public/index.html <<EOL
+#           <!doctype html>
+#           <html>
+#             <head>
+#               <title>GitHub Pages deployed!</title>
+#             </head>
+#             <body>
+#               <p>GitHub Pages with <strong>${{ github.sha }}</strong> commit ID has been deployed through <a href="https://github.com/marketplace/actions/github-pages">GitHub Pages action</a> successfully.</p>
+#             </body>
+#           </html>
+#           EOL
 #       -
 #         name: GitHub Pages
 #         uses: crazy-max/ghaction-github-pages@v2.2.0
@@ -94,13 +94,23 @@ jobs:
 #           # Allow Jekyll to build your site
 #   #         jekyll: # optional, default is true
       -
-        name: Deploy to GitHub Pages
-        if: success()
-        uses: crazy-max/ghaction-github-pages@v2
+        name: Angular Deploy gh-pages Actions
+        uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.1
         with:
-          target_branch: gh-pages
-          build_dir: /
-          author: Ivo Cunha
-          committer: Ivo Cunha
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Github access token token used to deploy on gh_pages. You can find it on Github.
+          github_access_token: b4cd65193b19b2e7c06bfdacbc39767024c7b2e2
+          # The directory of the angular project, in which all the commands will run
+          angular_project_dir: fuzzy-octo-pancake/
+          # Build configuration for the angular app
+          build_configuration: production
+          # base href for the app
+          base_href: /fuzzy-octo-pancake/
+          # branch on which the angular build will be deployed
+          deploy_branch: gh-pages
+          # The folder in which `ng build` provides its output. This is the folder which will be deployed to the `deploy_branch`.
+          angular_dist_build_folder: /
+          # If the action should run 'ng lint'
+  #         run_lint: true
+          # Will not fail the step if anything fails
+  #         skip_failure: false
+
