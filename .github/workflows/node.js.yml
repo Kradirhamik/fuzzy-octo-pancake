@@ -65,7 +65,8 @@ jobs:
         run: npm i
       -
         name: Build
-        run: npm run build
+#         run: npm run build
+        run: ng deploy --base-href=/fuzzy-octo-pancake/
 #       -
 #         name: Gen dummy page
 #         run: |
@@ -90,24 +91,4 @@ jobs:
           build_dir: fuzzy-octo-pancake\dist\fuzzy-octo-pancake\
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#       -
-#         name: Angular Deploy gh-pages Actions
-#         uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.1
-#         with:
-#           # Github access token token used to deploy on gh_pages. You can find it on Github.
-#           github_access_token: b4cd65193b19b2e7c06bfdacbc39767024c7b2e2
-#           # The directory of the angular project, in which all the commands will run
-#           angular_project_dir: fuzzy-octo-pancake/
-#           # Build configuration for the angular app
-#           build_configuration: production
-#           # base href for the app
-#           base_href: /fuzzy-octo-pancake/
-#           # branch on which the angular build will be deployed
-#           deploy_branch: gh-pages
-#           # The folder in which `ng build` provides its output. This is the folder which will be deployed to the `deploy_branch`.
-#           angular_dist_build_folder: /
-#           # If the action should run 'ng lint'
-#   #         run_lint: true
-#           # Will not fail the step if anything fails
-#   #         skip_failure: false
 
