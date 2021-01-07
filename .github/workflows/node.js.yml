@@ -69,36 +69,38 @@ jobs:
             </body>
           </html>
           EOL
-      -
-        name: GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v2.2.0
-        with:
-          # GitHub repository where assets will be deployed (default current)
-  #         repo: # optional
-          # Git branch where assets will be deployed
-  #         target_branch: # optional, default is gh-pages
-          # Create incremental commit instead of doing push force
-          keep_history: true
-          # Allow an empty commit to be created
-  #         allow_empty_commit: # optional, default is true
-          # Build directory to deploy
-          build_dir: /
-          # The committer name and email address
-          committer: Ivo Cunha
-          # The author name and email address
-          author: Ivo Cunha
-          # Commit message
-  #         commit_message: # optional
-          # Write the given domain name to the CNAME file
-  #         fqdn: # optional
-          # Allow Jekyll to build your site
-  #         jekyll: # optional, default is true
+#       -
+#         name: GitHub Pages
+#         uses: crazy-max/ghaction-github-pages@v2.2.0
+#         with:
+#           # GitHub repository where assets will be deployed (default current)
+#   #         repo: # optional
+#           # Git branch where assets will be deployed
+#   #         target_branch: # optional, default is gh-pages
+#           # Create incremental commit instead of doing push force
+#           keep_history: true
+#           # Allow an empty commit to be created
+#   #         allow_empty_commit: # optional, default is true
+#           # Build directory to deploy
+#           build_dir: /
+#           # The committer name and email address
+#           committer: Ivo Cunha
+#           # The author name and email address
+#           author: Ivo Cunha
+#           # Commit message
+#   #         commit_message: # optional
+#           # Write the given domain name to the CNAME file
+#   #         fqdn: # optional
+#           # Allow Jekyll to build your site
+#   #         jekyll: # optional, default is true
       -
         name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
         with:
           target_branch: gh-pages
-          build_dir: public
+          build_dir: /
+          author: Ivo Cunha
+          committer: Ivo Cunha
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
